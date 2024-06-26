@@ -42,6 +42,14 @@ public class NightBloom4J {
     }
 
     /**
+     * Override the API url used by the HTTP client
+     * @param url The new URL to use
+     */
+    public void setUrl(String url) {
+        this.getClient().setBaseUrl(url);
+    }
+
+    /**
      * API Endpoints for interacting with Projects
      * @return A {@link ProjectsEndpoint} endpoint client for executing project requests
      */
