@@ -17,7 +17,7 @@ import java.io.IOException;
 public abstract class HttpClient {
 
     // Private variables, mostly for internal use
-    private final String API_BASE = "https://api.nightbloom.cc";
+    private final String API_BASE = "http://127.0.0.1:8787";
 
     private final String baseUrl;
     private final UserAgent agent;
@@ -112,6 +112,9 @@ public abstract class HttpClient {
         bodyObject.addProperty("loader", String.join("|", data.getModloaders()));
         bodyObject.addProperty("minecraft", String.join("|", data.getMinecraftVersions()));
         bodyObject.addProperty("changelog", data.getChangelog());
+        bodyObject.addProperty("type", data.getType());
+        bodyObject.addProperty("dependsOn", data.getDependsOn());
+        bodyObject.addProperty("displayName", data.getDisplayName());
 
         RequestBody requestBody = new MultipartBody.Builder()
                 .setType(MultipartBody.FORM)

@@ -17,6 +17,9 @@ public class ProjectMeta {
     private final List<String> modloaders = new ArrayList<>();
     private final List<String> minecraftVersions = new ArrayList<>();
     private final String changelog;
+    private final String type;
+    private final int dependsOn;
+    private final String displayName;
 
     public void addModloader(String loader) {
         if (!modloaders.contains(loader))

@@ -2,10 +2,7 @@ package com.hypherionmc.nightbloom.client.requests;
 
 import com.hypherionmc.nightbloom.NightBloom4J;
 import com.hypherionmc.nightbloom.client.HttpClient;
-import com.hypherionmc.nightbloom.model.ProjectFile;
-import com.hypherionmc.nightbloom.model.ProjectMeta;
-import com.hypherionmc.nightbloom.model.ProjectResponse;
-import com.hypherionmc.nightbloom.model.StandardResponse;
+import com.hypherionmc.nightbloom.model.*;
 import lombok.RequiredArgsConstructor;
 
 import java.io.File;
@@ -46,13 +43,13 @@ public class ProjectsEndpoint {
 
     /**
      * Get all files for a single project
-     * @param slug The project slug. For example 'craterlib'
+     * @param request An instance of {@link ProjectFilesRequest}
      * @return A list of files uploaded to the project
      * @throws IOException Thrown when an API error occurs
      */
-    public List<ProjectFile> getFiles(String slug) throws IOException {
+    public PaginatedFileResult getFiles(ProjectFilesRequest request) throws IOException {
         HttpClient client = bloom4J.getClient();
-        return Arrays.stream(client.get("projects/" + slug + "/files", ProjectFile[].class)).collect(Collectors.toList());
+        return client.get(request.buildRequest(), PaginatedFileResult.class);
     }
 
     /**

@@ -14,10 +14,11 @@ import org.jetbrains.annotations.NotNull;
  * @author HypherionSA
  * Main API Client Class
  */
+@Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class NightBloom4J {
 
-    @NonNull @Getter
+    @NonNull
     private HttpClient client;
 
     /**

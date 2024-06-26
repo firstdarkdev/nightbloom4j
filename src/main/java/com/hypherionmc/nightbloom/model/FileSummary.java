@@ -18,7 +18,10 @@ public class FileSummary {
     private String version;
     private int filesize;
     private String filename;
+    private String type;
+    private Depends dependsOn;
     private String downloadUrl;
+    private String displayName;
     private Date createdAt;
     private Date updatedAt;
 

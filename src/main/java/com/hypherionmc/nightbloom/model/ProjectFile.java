@@ -19,6 +19,9 @@ public class ProjectFile {
     private int filesize;
     private String filename;
     private String downloadUrl;
+    private String type;
+    private Depends dependsOn;
+    private String displayName;
     private Date createdAt;
     private Date updatedAt;
 }
